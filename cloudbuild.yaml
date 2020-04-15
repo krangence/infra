@@ -1,5 +1,5 @@
 steps:
-- name: 'abdennour/eksctl'
+- name: 'abdennour/eksctl:0.16.0-aws-1.18.39-kubectl-v1.18.1'
   entrypoint: 'bash'
   args: ['run.sh']
   secretEnv: ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
