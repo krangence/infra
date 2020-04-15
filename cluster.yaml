@@ -16,9 +16,9 @@ vpc:
 managedNodeGroups:
 - name: ng-1
   instanceType: t3.xlarge
-  minSize: 2
-  maxSize: 4
-  desiredCapacity: 3
+  minSize: 0
+  maxSize: 0
+  desiredCapacity: 0
   volumeSize: 20
   ssh:
     publicKeyPath: playhrzn.pub
