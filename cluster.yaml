@@ -14,25 +14,44 @@ vpc:
     gateway: Disable
 
 managedNodeGroups:
-  - name: ng-1
-    instanceType: t3.xlarge
-    minSize: 2
-    maxSize: 4
-    desiredCapacity: 3
-    volumeSize: 20
-    ssh:
-      publicKeyPath: playhrzn.pub
-    labels: {role: worker}
-    tags:
-       nodegroup-role: worker
-    iam:
-      withAddonPolicies:
-        autoScaler: true
-        externalDNS: true
-        certManager: true
-        ebs: true
-        albIngress: true
-        cloudWatch: true
+- name: ng-1
+  instanceType: t3.xlarge
+  minSize: 2
+  maxSize: 4
+  desiredCapacity: 3
+  volumeSize: 20
+  ssh:
+    publicKeyPath: playhrzn.pub
+  labels: {role: worker}
+  tags:
+      nodegroup-role: worker
+  iam:
+    withAddonPolicies:
+      autoScaler: true
+      externalDNS: true
+      certManager: true
+      ebs: true
+      albIngress: true
+      cloudWatch: true
+- name: ng-2
+  instanceType: t3.xlarge
+  minSize: 2
+  maxSize: 4
+  desiredCapacity: 3
+  volumeSize: 20
+  ssh:
+    publicKeyPath: playhrzn.pub
+  labels: {role: worker}
+  tags:
+      nodegroup-role: worker
+  iam:
+    withAddonPolicies:
+      autoScaler: true
+      externalDNS: true
+      certManager: true
+      ebs: true
+      albIngress: true
+      cloudWatch: true
 
 cloudWatch:
   clusterLogging:
