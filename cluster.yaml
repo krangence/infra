@@ -16,9 +16,10 @@ vpc:
 managedNodeGroups:
 - name: ng-2
   instanceType: t3.xlarge
+  availabilityZones: ["eu-west-2c"]
   minSize: 2
-  maxSize: 4
-  desiredCapacity: 3
+  maxSize: 6
+  desiredCapacity: 2
   volumeSize: 20
   ssh:
     publicKeyPath: playhrzn.pub
