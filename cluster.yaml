@@ -17,6 +17,26 @@ managedNodeGroups:
 - name: ng-2
   instanceType: t3.xlarge
   availabilityZones: ["eu-west-2c"]
+  minSize: 0
+  maxSize: 0
+  desiredCapacity: 0
+  volumeSize: 20
+  ssh:
+    publicKeyPath: playhrzn.pub
+  labels: {role: worker}
+  tags:
+      nodegroup-role: worker
+  iam:
+    withAddonPolicies:
+      autoScaler: true
+      externalDNS: true
+      certManager: true
+      ebs: true
+      albIngress: true
+      cloudWatch: true
+- name: ng-3
+  instanceType: t3.xlarge
+  availabilityZones: ["eu-west-2c"]
   minSize: 2
   maxSize: 6
   desiredCapacity: 2
