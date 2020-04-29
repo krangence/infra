@@ -5,7 +5,7 @@ steps:
   secretEnv: ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
 timeout: 1800s
 secrets:
-- kmsKeyName: projects/hrznfactory/locations/global/keyRings/keyring/cryptoKeys/key
+- kmsKeyName: projects/kaygee-factory/locations/global/keyRings/keyring/cryptoKeys/key
   secretEnv:
-    AWS_ACCESS_KEY_ID: CiQA/t63gSa6fFaQ5kKJ8D1iypGnLfNap62P+NP/4p5XhiYWIgcSPQA2yBtTCRD4trIrR+80sj9dDOtO014KsgtcvNysOoXKn6RAjkzsfMUS4Er2T/luPDX83+SdwSm/MyRotQI=
-    AWS_SECRET_ACCESS_KEY: CiQA/t63gRtDjRyOQ/PahwsaqmVY7UyPOptHMCn46gHMFC6lguMSUQA2yBtTJD7hLAu1jIsvngHL6buKVIffi3mUGNg+7bAF3/NxSzo6UkAp+eqjg6P9TKObkjt7P/30niRBgsDA0CPw9utHHnHd+kSDrZrRunY8oQ==
+    AWS_ACCESS_KEY_ID: CiQAJS+bVrmN7czo3sCc0WVWUyyvsBIGjMSxQkmo6dRQq7HBWP8SPQBWa0f+zj7C+0EY48Ird+EHMKzfzk2WsoG9XhP18oidldyhDin8y3KaqC93BWEaJ+wRxqfVmSRavCI2lZw=
+    AWS_SECRET_ACCESS_KEY: CiQAJS+bVnMbn+cgujxCvPeQsBJcllQoeGia7To9dY1Ik63Kru8SUQBWa0f+pVuW+FQEIoOfSMvtNPpwXwoJzKOIjpJG1oEC7/VGtK+ZeRdxSWAt1ZnxO/WLF8lS7+mNorXalfIQTOBE14WC11vjHoeQUxsGDp25WQ==

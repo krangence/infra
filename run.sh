@@ -3,9 +3,9 @@
 set -x
 set -o pipefail
 
-ADMIN_IAM_ROLE="arn:aws:iam::521397258504:role/admin"
-FLUX_GIT_URL="git@github.com:HRZNStudio/playhrzn-k8s.git"
-FLUX_GIT_EMAIL="accounts@hrznstudio.com"
+ADMIN_IAM_ROLE="arn:aws:iam::474108156746:role/admin"
+FLUX_GIT_URL="git@github.com:krangence/k8s-flux.git"
+FLUX_GIT_EMAIL="matt@matt-white.co.uk"
 
 touch output.txt
 tail -f output.txt &
