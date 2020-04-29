@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: playhrzn-dev
+  name: kaygee-dev
   region: eu-west-2
   version: "1.15"
 
@@ -14,15 +14,14 @@ vpc:
     gateway: Disable
 
 managedNodeGroups:
-- name: ng-3
-  instanceType: t3.xlarge
-  availabilityZones: ["eu-west-2c"]
-  minSize: 2
-  maxSize: 6
+- name: ng-1
+  instanceType: t3.medium
+  minSize: 1
+  maxSize: 3
   desiredCapacity: 2
-  volumeSize: 20
+  volumeSize: 25
   ssh:
-    publicKeyPath: playhrzn.pub
+    publicKeyPath: 
   labels: {role: worker}
   tags:
       nodegroup-role: worker
