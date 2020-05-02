@@ -10,7 +10,7 @@ FLUX_GIT_EMAIL="matt@matt-white.co.uk"
 touch output.txt
 tail -f output.txt &
 
-if [[ "$(eksctl create cluster -f cluster.yaml | tee output.txt)" = *AlreadyExistsException* ]]; then
+if [[ "$(eksctl create cluster -f cluster.yaml | tee output.txt)" != *AlreadyExistsException* ]]; then
     set -e
     eksctl update cluster -f cluster.yaml --approve
 	eksctl create nodegroup -f cluster.yaml
@@ -21,8 +21,9 @@ if [[ "$(eksctl create cluster -f cluster.yaml | tee output.txt)" = *AlreadyExis
 	eksctl create iamidentitymapping -f cluster.yaml --arn "${ADMIN_IAM_ROLE}" --group system:masters --username admin
 else
 	set -e
-	EKSCTL_EXPERIMENTAL=true
-	eksctl enable repo -f cluster.yaml --git-url="${FLUX_GIT_REPO}" --git-email="${FLUX_GIT_EMAIL}"
+	apk add git openssh
+	git clone "${FLUX_GIT_URL}"
+	kubectl apply -k "$(echo ${FLUX_GIT_URL} | cut -d/ -f2 | cut -d. -f1)/flux"
 fi
 
 exit $?
