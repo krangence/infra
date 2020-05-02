@@ -4,7 +4,7 @@ set -x
 set -o pipefail
 
 ADMIN_IAM_ROLE="arn:aws:iam::521397258504:role/admin"
-FLUX_GIT_URL="git@github.com:HRZNStudio/playhrzn-k8s.git"
+FLUX_GIT_URL="https://github.com/HRZNStudio/playhrzn-k8s.git"
 FLUX_GIT_EMAIL="accounts@hrznstudio.com"
 
 touch output.txt
@@ -18,11 +18,12 @@ if [[ "$(eksctl create cluster -f cluster.yaml | tee output.txt)" = *AlreadyExis
 	eksctl utils update-kube-proxy -f cluster.yaml --approve
 	eksctl utils update-aws-node -f cluster.yaml --approve
 	eksctl utils update-coredns -f cluster.yaml --approve
-	eksctl create iamidentitymapping -f cluster.yaml --arn "${ADMIN_IAM_ROLE}" --group system:masters --username admin
 else
 	set -e
-	EKSCTL_EXPERIMENTAL=true
-	eksctl enable repo -f cluster.yaml --git-url="${FLUX_GIT_REPO}" --git-email="${FLUX_GIT_EMAIL}"
+	eksctl create iamidentitymapping -f cluster.yaml --arn "${ADMIN_IAM_ROLE}" --group system:masters --username admin
+	apk add git openssh
+	git clone "${FLUX_GIT_URL}" flux
+	kubectl apply -k "flux/flux"
 fi
 
 exit $?
